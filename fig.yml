@@ -1,0 +1,16 @@
+server:
+  image: 'smaj/gocd-server'
+  ports:
+    - "8153:8153"
+  volumes:
+   - '/Users/jacks83/Desktop/github/id_rsa_plain:github'
+agent:
+  image: 'smaj/gocd-agent'
+  command: '/usr/share/go-agent/agent.sh'
+  links:
+    - 'server:server'
+  volumes:
+    - '/var/run/docker.sock:/var/run/docker.sock'
+    - '/usr/local/bin/docker:/usr/bin/docker'
+    - '/Users/jacks83/Desktop/github/id_rsa_plain:/github'
+    - '/var/lib/go-agent/pipelines:/var/lib/go-agent/pipelines'
