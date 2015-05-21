@@ -3,7 +3,7 @@ server:
   ports:
     - "8153:8153"
   volumes:
-   - '/Users/jacks83/Desktop/github/id_rsa_plain:github'
+   - '/Users/jacks83/Desktop/github/id_rsa_plain:/github'
 agent:
   image: 'smaj/gocd-agent'
   command: '/usr/share/go-agent/agent.sh'
